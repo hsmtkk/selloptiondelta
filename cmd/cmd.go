@@ -38,10 +38,15 @@ func run(cmd *cobra.Command, args []string) {
 	t.AppendHeader(table.Row{"Name", "Quarter", "Delta"})
 	for _, pos := range positions {
 		t.AppendRow([]interface{}{pos.symbolName, pos.leavesQty, pos.delta})
-		totalDelta += float64(pos.leavesQty) * pos.delta
+		totalDelta += float64(pos.leavesQty) * -pos.delta // 売りのためマイナス
 	}
 	t.Render()
 	fmt.Printf("Total delta: %f\n", totalDelta)
+	if totalDelta > 0 {
+		fmt.Println("sell CALL for delta neutral")
+	} else if totalDelta < 0 {
+		fmt.Println("sell PUT for delta neutral")
+	}
 }
 
 type optionPosition struct {

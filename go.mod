@@ -3,7 +3,7 @@ module github.com/hsmtkk/selloptiondelta
 go 1.22.1
 
 require (
-	github.com/hsmtkk/aukabucomgo v0.0.0-20240402012430-9da04a38db02
+	github.com/hsmtkk/aukabucomgo v0.0.0-20240402031437-d946b7964505
 	github.com/jedib0t/go-pretty/v6 v6.5.6
 	github.com/spf13/cobra v1.8.0
 )
